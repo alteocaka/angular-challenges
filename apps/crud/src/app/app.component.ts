@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { provideComponentStore } from '@ngrx/component-store';
 import { AppStore } from './app.store';
+import { TodoItemComponent } from './todo-item/todo-item.component';
 
 export interface Todo {
   userId: number;
@@ -15,7 +16,7 @@ export interface Todo {
 
 @Component({
   standalone: true,
-  imports: [CommonModule, MatProgressSpinnerModule],
+  imports: [CommonModule, MatProgressSpinnerModule, TodoItemComponent],
   providers: [provideComponentStore(AppStore)],
   selector: 'app-root',
   // template: `
@@ -28,15 +29,7 @@ export interface Todo {
   //   </ng-container>
   //   <mat-spinner *ngIf="loading === true"></mat-spinner>
   // `,
-  template: `
-    <div *ngFor="let todo of todos$ | async">
-      {{ todo.title }}
-      <button (click)="update(todo)">Update</button>
-      <button (click)="deleteTodo(todo.id)">Delete</button>
-    </div>
-    <mat-spinner *ngIf="loading$ | async as loading"></mat-spinner>
-    <p *ngIf="error$ | async as error">{{ error.message }}</p>
-  `,
+  templateUrl: './app.component.html',
   styles: [],
 })
 export class AppComponent implements OnInit {
