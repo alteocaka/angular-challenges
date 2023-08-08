@@ -1,5 +1,16 @@
 <div>
-  <p>{{ todo.title }}</p>
+  <p>This is a {{dummyName}}!</p>
+  <p>{{ todo?.title }}</p>
   <button (click)="update(todo)">Update</button>
   <button (click)="deleteTodo(todo.id)">Delete</button>
 </div>
+
+<style>
+  div{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    opacity: 0.8;
+  }
+</style>

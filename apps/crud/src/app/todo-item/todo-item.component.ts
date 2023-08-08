@@ -16,6 +16,8 @@ export class TodoItemComponent {
   @Input()
   todo!: Todo;
 
+  dummyName = 'Todo';
+
   update(todo: Todo) {
     this.todoItemStore.updateTodo(todo);
   }
