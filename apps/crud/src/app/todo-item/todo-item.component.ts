@@ -14,16 +14,13 @@ export class TodoItemComponent {
   constructor(private todoItemStore: TodoItemStore) {}
 
   @Input()
-  // set todo(todo: Todo) {
-  //   this.todoItemStore.patchState({ todo });
-  // }
   todo!: Todo;
 
   update(todo: Todo) {
     this.todoItemStore.updateTodo(todo);
   }
 
-  deleteTodo(todo: Todo) {
-    this.todoItemStore.deleteTodo(todo);
+  deleteTodo(todoId: number) {
+    this.todoItemStore.deleteTodo(todoId);
   }
 }

@@ -1,5 +1,5 @@
 <div>
-  {{ todo.title }}
+  <p>{{ todo.title }}</p>
   <button (click)="update(todo)">Update</button>
-  <button (click)="deleteTodo(todo)">Delete</button>
+  <button (click)="deleteTodo(todo.id)">Delete</button>
 </div>

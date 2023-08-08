@@ -11,8 +11,6 @@ export class TodoItemStore extends ComponentStore<any> {
     super({});
   }
 
-  readonly todo$ = this.select((state) => state);
-
   readonly updateTodo = this.effect<Todo>(
     pipe(
       tap(() => console.log()),
@@ -31,10 +29,8 @@ export class TodoItemStore extends ComponentStore<any> {
 
   readonly deleteTodo = this.effect(
     pipe(
-      switchMap((todo: Todo) =>
-        this.todoService
-          .delete(todo.id)
-          .pipe(tap((todo) => this.todoStore.delete(todo.id)))
+      switchMap((id: number) =>
+        this.todoService.delete(id).pipe(tap(() => this.todoStore.delete(id)))
       )
     )
   );
