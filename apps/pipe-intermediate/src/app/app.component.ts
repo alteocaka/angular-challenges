@@ -1,14 +1,18 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
+import { WrapFunctionsPipe } from './wrap-functions.pipe';
 
 @Component({
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, WrapFunctionsPipe],
   selector: 'app-root',
   template: `
     <div *ngFor="let person of persons; let index = index; let isFirst = first">
-      {{ showName(person.name, index) }}
-      {{ isAllowed(person.age, isFirst) }}
+      <!-- {{ showName(person.name, index) }}
+      {{ isAllowed(person.age, isFirst) }} -->
+      {{
+        showName(person.name, index) | wrapFn : isAllowed(person.age, isFirst)
+      }}
     </div>
   `,
 })
