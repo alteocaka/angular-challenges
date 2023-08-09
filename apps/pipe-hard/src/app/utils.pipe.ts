@@ -4,6 +4,7 @@ import { PersonUtils } from './person.utils';
 @Pipe({ name: 'util', standalone: true })
 export class UtilsPipe implements PipeTransform {
   transform(value: any, functionName: string, ...args: any[]) {
-    return value;
+    const func: Function = (PersonUtils as any)[functionName];
+    return func(value, args);
   }
 }
