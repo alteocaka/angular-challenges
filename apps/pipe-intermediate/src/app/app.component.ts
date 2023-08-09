@@ -10,9 +10,8 @@ import { WrapFunctionsPipe } from './wrap-functions.pipe';
     <div *ngFor="let person of persons; let index = index; let isFirst = first">
       <!-- {{ showName(person.name, index) }}
       {{ isAllowed(person.age, isFirst) }} -->
-      {{
-        showName(person.name, index) | wrapFn : isAllowed(person.age, isFirst)
-      }}
+      {{ person.name | wrapFn : showName(person.name, index) }}
+      {{ person.age | wrapFn : isAllowed(person.age, isFirst) }}
     </div>
   `,
 })
