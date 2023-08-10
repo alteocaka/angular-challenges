@@ -4,6 +4,7 @@ const showName = (name: string, index: number) => {
 };
 
 const isAllowed = (age: number, isFirst: boolean, activityAge: number) => {
+  console.log(isFirst);
   if (isFirst) {
     return 'always allowed';
   } else {

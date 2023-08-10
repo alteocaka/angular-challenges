@@ -5,6 +5,6 @@ import { PersonUtils } from './person.utils';
 export class UtilsPipe implements PipeTransform {
   transform(value: any, functionName: string, ...args: any[]) {
     const func: Function = (PersonUtils as any)[functionName];
-    return func(value, args);
+    return func(value, ...args);
   }
 }
